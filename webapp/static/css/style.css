@@ -1,0 +1,200 @@
+.login-button {
+  border-radius: 4px;
+  text-transform: none;
+  font-weight: 600;
+  --mdc-theme-primary: #004EFF;
+  z-index: 3;
+  float: right;
+}
+
+.about-button {
+  border-radius: 4px;
+  text-transform: none;
+  font-weight: 600;
+  --mdc-theme-primary: #004EFF;
+  z-index: 3;
+}
+
+.understand-button {
+  border-radius: 4px;
+  text-transform: none;
+  font-weight: 600;
+  --mdc-theme-primary: #004EFF;
+  z-index: 3;
+}
+
+.rightText {
+  text-align: right;
+}
+
+.blockWithAllInfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+}
+
+.keyText {
+  font-family: "Roboto";
+  font-size: 2em;
+  text-align: center;
+  color: white;
+}
+
+.timeHelper, .timerText {
+  color: white;
+  font-family: "Roboto";
+}
+
+.minutes, .seconds {
+  color: white;
+  font-weight: 600;
+}
+
+p {
+  font-family: "Roboto";
+}
+
+.errorText {
+  font-family: "Roboto";
+  font-size: 0.7em;
+  padding-left: 8px;
+  padding-top: 8px;
+  color: red;
+}
+
+.buttonsHolder {
+  margin-top: 14px;
+  width: 100%;
+  text-align: left;
+}
+
+.fullwidth_input {
+  width: 100%;
+}
+
+.mdc-floating-label {
+  color: #004EFF;
+}
+
+.mdc-floating-label--float-above {
+  color: #004EFF;
+}
+
+.background {
+  background: #3333D6;
+  background: -webkit-linear-gradient(to bottom right, #1D8FE6, #3333D6);
+  background: linear-gradient(to bottom right, #1D8FE6, #3333D6);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.block_title {
+  margin-top: 10px;
+  font-size: 1.7em;
+  font-family: "Roboto";
+}
+
+h6 {
+  margin-top: 4px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Roboto";
+  text-transform: lowercase;
+}
+
+html, body, main {
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.handlerOfLogin {
+  margin: 10px;
+  z-index: 3;
+  max-width: 380px;
+}
+
+.blockWithLogin {
+  padding: 30px;
+  background-color: white;
+  width: calc(100% - 60px);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.login_input {
+  margin-bottom: 16px;
+  --mdc-theme-primary: #004EFF;
+  --mdc-text-field-outline-color: #004EFF;
+  --mdc-theme-text-primary-on-accent: #004EFF;
+}
+
+.password_input {
+  margin-bottom: 16px;
+  --mdc-theme-primary: #004EFF;
+  --mdc-text-field-outline-color: #004EFF;
+  --mdc-theme-text-primary-on-accent: #004EFF;
+}
+
+footer {
+  width: 100%;
+  font-family: "Roboto";
+  position: fixed;
+  bottom: 8px;
+  text-align: center;
+  color: white;
+}
+
+.handlerInstructions {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.handlerInstructions .blockWithInstructions {
+  font-family: "Roboto";
+  border-radius: 10px;
+  width: calc((100% - 90px) / 2);
+  display: inline-block;
+  background: white;
+  padding: 20px;
+}
+.handlerInstructions .blockWithInstructions .imageHandler {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.handlerInstructions .blockWithInstructions .productName {
+  width: calc(100% - 60px);
+  display: inline-block;
+  text-align: center;
+}
+.handlerInstructions .blockWithInstructions .productName .developer {
+  margin-bottom: 3px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.handlerInstructions .blockWithInstructions .productName .name {
+  font-weight: 0.9em;
+}
+
+/*# sourceMappingURL=index.css.map */

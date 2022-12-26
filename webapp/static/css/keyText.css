@@ -1,0 +1,78 @@
+.keyText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3.5em;
+  color: white;
+  margin: 20px 0px 20px 0px; }
+
+.messTitle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4em;
+  color: white;
+  font-weight: bold; }
+
+.messText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: white; }
+
+.blockWithText {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  width: 100%; }
+
+.timerText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.8em;
+  color: white; }
+
+.seconds, .minutes {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold; }
+
+.timeHelper {
+  font-family: "Open Sans", sans-serif;
+  margin-top: 20px;
+  color: white;
+  font-size: 0.7em;
+  text-transform: uppercase; }
+
+.commentsAboutKey {
+  color: white;
+  font-size: 1em; }
+
+.aliceDialogHandler {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .aliceDialogHandler .aliceDialog {
+    width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: transparent; }
+    .aliceDialogHandler .aliceDialog .messageHandler {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-start; }
+      .aliceDialogHandler .aliceDialog .messageHandler .message {
+        width: 200px;
+        text-align: left;
+        border: 2px solid #F0F0F5;
+        background-color: transparent;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 4px 20px 20px 20px;
+        color: white; }
+      .aliceDialogHandler .aliceDialog .messageHandler .rightMessage {
+        background-color: #F0F0F5;
+        color: #3e3e3e;
+        font-weight: bold;
+        border-radius: 20px 20px 4px 20px; }
+    .aliceDialogHandler .aliceDialog .right {
+      justify-content: flex-end; }
+
+/*# sourceMappingURL=keyText.css.map */

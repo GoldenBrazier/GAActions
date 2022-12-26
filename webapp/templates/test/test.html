@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang = 'ru'>
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Main includes -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+        {% load staticfiles %}
+
+        <script src="/static/libs/jQuery/jquery-3.2.1.min.js"></script>
+        <script src='/static/libs/jQuery.equalHeights-master/jquery.equalheights.min.js'></script>
+        <!-- bootstrap-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href= "/static/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href= "/static/libs/fontawesome-free-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
+    </head>
+    <body>
+        <main class = 'container opacityBlock'>
+            <div class = 'blockWithInfo opacityBlock' id = 'block1'>
+                <div class = 'col-sm-6 centeredBlock'>
+                    <div class = 'loginBlock'>
+                        <div class = 'errorText'>Alice TEST</div>
+                        {% csrf_token %}
+                        <div class = 'applyButton' id = 'sendFields'>продолжить</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class = 'organisationHolder'>
+                <div class = 'title'>hseLyceum</div>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    jQuery(function($){
+        $('#sendFields').click(function(){
+            alert('great')
+            $.ajax({
+                url: '/webapp/alisa/',
+                type: 'POST',
+                data: {
+                  "meta": {
+                    "locale": "ru-RU",
+                    "timezone": "Europe/Moscow",
+                    "client_id": "ru.yandex.searchplugin/5.80 (Samsung Galaxy; Android 4.4)"
+                  },
+                  "request": {
+                     "command": "где ближайшее отделение",
+                     "original_utterance": "Алиса спроси у Сбербанка где ближайшее отделение",
+                     "type": "SimpleUtterance",
+                     "markup": {
+                        "dangerous_context": true
+                     },
+                     "payload": {}
+                  },
+                  "session": {
+                    "new": true,
+                    "message_id": 4,
+                    "session_id": "2eac4854-fce721f3-b845abba-20d60",
+                    "skill_id": "3ad36498-f5rd-4079-a14b-788652932056",
+                    "user_id": "AC9WC3DF6FCE052E45A4566A48E6B7193774B84814CE49A922E163B8B29881DC"
+                  },
+                  "version": "1.0"
+                },
+                success: function(data){
+                    alert('ok')
+                    console.log(data)
+                },
+                error: function(){
+                    alert('error')
+                },
+                dataType: 'json'
+            });
+        })
+    })
+</script>

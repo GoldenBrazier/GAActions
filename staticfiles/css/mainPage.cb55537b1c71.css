@@ -1,0 +1,115 @@
+main {
+  margin: 0px;
+  padding: 0px;
+  height: 100%; }
+
+header {
+  opacity: 0; }
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+.organisationHolder {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  bottom: 0px;
+  text-align: center; }
+  .organisationHolder .title {
+    color: white; }
+
+body {
+  background: linear-gradient(to right, #4640E3, #1C91E6);
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+  body .opacityBlock {
+    background-color: rgba(0, 0, 0, 0); }
+  body .centeredBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+  body .leftedBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; }
+  body .blockWithInfo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; }
+    body .blockWithInfo .textBlock .titleOfBlock {
+      color: white;
+      font-size: 2em;
+      font-weight: 500;
+      margin-bottom: 50px; }
+    body .blockWithInfo .textBlock .instructionBlock .instructionElement {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+      body .blockWithInfo .textBlock .instructionBlock .instructionElement .instructionNumber {
+        color: white;
+        border: 2px white solid;
+        padding-left: 7px;
+        padding-right: 6px;
+        margin-right: 14px;
+        border-radius: 20px; }
+      body .blockWithInfo .textBlock .instructionBlock .instructionElement .instructionText {
+        margin-top: 2px;
+        color: white;
+        font-size: 1.1em;
+        font-weight: 600; }
+    body .blockWithInfo .loginBlock {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px; }
+      body .blockWithInfo .loginBlock .titleOfBlock {
+        color: #242424;
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 30px; }
+      body .blockWithInfo .loginBlock .titleOfInputLine {
+        color: #242424;
+        font-size: 1.1em; }
+      body .blockWithInfo .loginBlock .inputField {
+        font-size: 1.1em;
+        outline: none;
+        background-color: #EBEBEB;
+        border: 0px black solid;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+        width: 100%; }
+      body .blockWithInfo .loginBlock .applyButton {
+        cursor: pointer;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        outline: none;
+        background-color: #242424;
+        color: white;
+        border: 0px black solid;
+        padding: 16px;
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 10px;
+        transition: 0.2s; }
+        body .blockWithInfo .loginBlock .applyButton:hover {
+          background-color: #383838;
+          transition: 0.2s; }
+
+/*# sourceMappingURL=style.css.map */

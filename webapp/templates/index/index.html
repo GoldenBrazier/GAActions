@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang = 'ru'>
+    <head>
+
+        <meta charset="utf-8">
+
+        <!-- Main includes -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+        <link rel="stylesheet" href = '/static/css/index.css'>
+        <link rel="stylesheet" href = '/static/css/animation.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <div class = 'background'></div>
+
+        <main class = 'container opacityBlock'>
+            <div class = 'handlerOfLogin' style="display: none;" id = 'block1'>
+                <div class = 'blockWithLogin'>
+                    <div class = 'block_title'>Вход</div>
+                    <h6>Используйте аккаунт элжур</h6>
+                    <div class="mdc-text-field mdc-text-field--outlined fullwidth_input login_input">
+                        <input tabindex="1" type="text" id="loginField" class="mdc-text-field__input">
+                        <label for="loginField" class="mdc-floating-label login_input_text">Логин</label>
+                        <div class="mdc-notched-outline">
+                            <svg>
+                                <path class="mdc-notched-outline__path"/>
+                            </svg>
+                        </div>
+                        <div class="mdc-notched-outline__idle"></div>
+                    </div>
+
+                    <div class="mdc-text-field mdc-text-field--outlined fullwidth_input password_input">
+                        <input tabindex="2" type="password" id="passwordField" class="mdc-text-field__input">
+                        <label for="passwordField" class="mdc-floating-label password_input_text">Пароль</label>
+                        <div class="mdc-notched-outline">
+                            <svg>
+                                <path class="mdc-notched-outline__path"/>
+                            </svg>
+                        </div>
+                        <div class="mdc-notched-outline__idle"></div>
+                    </div>
+                    <div class = 'errorText'></div>
+                    <div class = 'buttonsHolder'>
+                        <button  class="about-button mdc-button">Как войти?</button>
+                        {% csrf_token %}
+                        <button id = 'loginButton' class="login-button mdc-button mdc-button--unelevated">Далее</button>
+                    </div>
+                </div>
+                <div class = 'handlerInstructions'>
+                    <a href="https://assistant.google.com/" class = 'blockWithInstructions'>
+                        <img class = 'imageHandler' src = '/static/images/ga.png'/>
+                        <div class = 'productName'>
+                            <div class = 'developer'>
+                                Google
+                            </div>
+                            <div class = 'name'>
+                                Assistant
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://alice.yandex.ru" class = 'blockWithInstructions'>
+                        <img class = 'imageHandler' src = '/static/images/alice.png'/>
+                        <div class = 'productName'>
+                            <div class = 'developer'>
+                                Яндекс
+                            </div>
+                            <div class = 'name'>
+                                Алиса
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: none;" id = 'block2'>
+                <div class = 'bottomWithHelpText'>
+                    <div class = 'keyBlock' id = 'lableSetKey'>
+
+                    </div>
+                    <div class = 'timeBlock'>
+                        <span class = 'minutes'>2</span>:<span class = 'seconds'>00</span>
+                    </div>
+                </div>
+
+                <div class = 'promoBlock'>
+                    <div class = 'question' style="opacity: 0;">
+
+                    </div>
+
+                    <div class = 'answerHandler' style="opacity: 0;">
+                        <div class = 'imageHandler'>
+                            <img class = 'image' src = '/static/images/ga.png'/>
+                        </div>
+                        <div class = 'answer' >
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='loading' style="display: none;"><div class='dot'></div></div>
+
+            <div class = 'handlerOfLogin' style="display: none;" id = 'block4'>
+                <div class = 'blockWithLogin'>
+                    <div class = 'block_title'>Как войти?</div>
+                    <div class = 'blockWithAllInfo'>
+                        <p>
+                            Войдите в Eljur-аккаунт на главной странице
+                        </p>
+                        <p>
+                            Откройте навык "Помощник Лицей НИУ ВШЭ"
+                        </p>
+                        <p>
+                            Продиктуйте Помощнику фразу с экрана
+                        </p>
+                        <p>
+                            Теперь "Помощник Лицей НИУ ВШЭ" связан с Вашим Eljur-аккаунтом
+                        </p>
+                    </div>
+                    <div class = 'rightText'>
+                        <button class="understand-button mdc-button">ОK</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class = 'organisationHolder'>
+                <div class = 'title'>hseLyceum</div>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<script>
+    mdc.textField.MDCTextField.attachTo(document.querySelector('.login_input'));
+    mdc.textField.MDCTextField.attachTo(document.querySelector('.password_input'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.login-button'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.about-button'));
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    jQuery(function($){
+        $('.mdc-floating-label').css('color', 'rgb(111,111,111)')
+        $('.mdc-text-field__input').focus(function(){
+            if ($('.login_input').hasClass("mdc-text-field--focused")) {
+                $('.login_input_text').css('color', '#004EFF')
+            }
+            if ($('.password_input').hasClass("mdc-text-field--focused")) {
+                $('.password_input_text').css('color', '#004EFF')
+            }
+        })
+        $(document).on("focusout", ".mdc-text-field input", function(){
+            $('.login_input_text').css('color', 'rgb(111,111,111)')
+            $('.password_input_text').css('color', 'rgb(111,111,111)')
+        });
+
+        function changeMenuProperties(){
+            var h = window.innerHeight
+            if (h < 560) {
+                $('.login_input').css('width', '47%')
+                $('.login_input').css('marginRight', '2%')
+                $('.password_input').css('width', '47%')
+            } else {
+                $('.login_input').css('width', '100%')
+                $('.login_input').css('marginRight', '0px')
+                $('.password_input').css('width', '100%')
+            }
+
+            if (h < 480) {
+                $('.handlerInstructions').hide()
+            } else {
+                $('.handlerInstructions').show()
+            }
+
+            if (h < 390) {
+                $('.organisationHolder').hide()
+            } else {
+                $('.organisationHolder').show()
+            }
+
+            if ($('.bottomWithHelpText').height() > 70){
+                $('.bottomWithHelpText').css('background', 'white')
+            } else {
+                $('.bottomWithHelpText').css('background', '#e9e9e9')
+            }
+        }
+
+        changeMenuProperties() //fix visual problems
+
+        $(window).resize(function() {
+            changeMenuProperties()
+        });
+
+        var expiresIn = 0
+        var timerId
+        var timeouts = []
+        var nowMessageShow = 0
+        var isAnimationWork = 0
+
+        function startMessagesAnimation(){
+            setNextMessagesText()
+            isAnimationWork = 1
+            showMessages()
+        }
+
+        function stopMessagesAnimation(){
+            isAnimationWork = 0
+            nowMessageShow = 0
+            blockAnimate('.answerHandler', 0)
+            setTimeout(function(){blockAnimate('.question', 0)}, 800)
+            setTimeout(function(){setNextMessagesText()}, 2000)
+        }
+
+        var questions = [
+            'Для входа в eljur-аккаунт введите код',
+            'На завтра что-то по русскому задали?',
+            'Расписание на завтра'
+        ]
+
+        var answers = [
+            'Вы вошли в eljur-аккаунт, добро пожаловать',
+            'Нет. Отдыхайте',
+            'Завтра четвер, вот расписание: 2 урока "русский язык", 3 урока "математика" и "литература"'
+        ]
+
+        function setNextMessagesText(){
+            $('.question').text(questions[nowMessageShow])
+            $('.answer').text(answers[nowMessageShow])
+            nowMessageShow++
+            nowMessageShow %= answers.length
+        }
+
+        function blockAnimate(what, opa){
+            $(what).animate({
+                opacity: opa,
+            }, 400);
+        }
+
+        function hideMessages(){
+            if (isAnimationWork == 1) {
+                blockAnimate('.answerHandler', 0)
+                setTimeout(function(){blockAnimate('.question', 0)}, 800)
+                setTimeout(function(){setNextMessagesText()}, 2000)
+                setTimeout(function(){showMessages()}, 2400)
+            }
+        }
+
+        function showMessages(){
+            if (isAnimationWork == 1) {
+                blockAnimate('.question', 1)
+                setTimeout(function(){blockAnimate('.answerHandler', 1)}, 800)
+                setTimeout(function(){hideMessages()}, 6400)
+            }
+        }
+
+        $('#block1').fadeIn(300)
+
+        function startTimer(){
+            redrawTimer()
+            timerId = setInterval(redrawTimer, 1000)
+        }
+
+        function redrawTimer(){
+            var milliseconds = (new Date).getTime();
+            var ost = expiresIn - milliseconds
+            ost /= 1000
+            if (ost <= 0){
+                clearInterval(timerId);
+                animate('#block2', '#block1')
+            }
+            var mins = parseInt(ost / 60)
+            var secs = parseInt(ost % 60)
+            if (secs < 10){
+                secs = '0' + secs
+            }
+            $('.minutes').text(mins)
+            $('.seconds').text(secs)
+        }
+
+
+        function setError(error){
+            if (error == ''){
+                $('.errorText').text(error)
+            } else {
+                $('.errorText').text(error)
+            }
+
+        }
+
+        function animate(from, to){
+            for (var i = 0; i < timeouts.length; i++) {
+                clearTimeout(timeouts[i]);
+            }
+            $(from).fadeOut(300)
+            timeouts.push(setTimeout(function(){$(to).fadeIn(300)}, 400));
+
+            currentWindow = to
+            if (to == '#block2'){
+                startMessagesAnimation()
+            }
+            if (from == '#block2'){
+                stopMessagesAnimation()
+            }
+        }
+
+        $('#loginButton').click(function(){
+            animate('#block1', '.loading')
+            var login = $('#loginField').val()
+            var pass = $('#passwordField').val()
+            $.ajax({
+                url: 'generator/',
+                type: 'POST',
+                data: {
+                    'login': login,
+                    'password': pass,
+                    'csrfmiddlewaretoken': getCookie('csrftoken')
+                },
+                success: function(data){
+                    if (data.ok == 'True'){
+                        setError('')
+                        $('#lableSetKey').text(data.key)
+                        forDialog = data.key.replace(',', '').replace(',', '')
+                        $('#dialogSetKey').text(forDialog)
+                        questions[0] = forDialog
+                        expiresIn = data.expire
+                        startTimer()
+                        animate('.loading', '#block2')
+                    } else {
+                        setError(data.error)
+                        animate('.loading', '#block1')
+                    }
+                },
+                error: function(){
+                    setError('Ошибка сервера, поробуйте позже')
+                    animate('.loading', '#block1')
+                },
+                dataType: 'json'
+            });
+        })
+
+        $('.about-button').click(function(){
+            animate('#block1', '#block4')
+        })
+
+        $('.understand-button').click(function(){
+            animate('#block4', '#block1')
+        })
+
+    })
+
+</script>
